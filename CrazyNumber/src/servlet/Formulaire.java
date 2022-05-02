@@ -1,0 +1,65 @@
+package servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Formulaire
+ */
+@WebServlet("/Formulaire")
+public class Formulaire extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	int nombreMystere = 0;
+	int compteur = 0;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Formulaire() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+    	nombreMystere = (int) (Math.random() * 10);
+    	
+    	super.init(config);
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		compteur++;
+		System.out.println("Nombre essais : " + compteur);
+		String nombreDonne = request.getParameter("num");
+		int nombre = Integer.parseInt(nombreDonne);
+		System.out.println(nombre);
+		if(nombre == nombreMystere) {
+			System.out.println(nombre);
+			response.sendRedirect("/CrazyNumber/HTML/Reussite.html");
+		}else {
+			System.out.println(nombre);
+			response.sendRedirect("/CrazyNumber/HTML/Echec.html");
+		}
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String numeroString = String.valueOf(compteur);
+		
+		System.out.println("Sequence : " + numeroString);
+		response.getWriter().append(numeroString);
+		
+	}
+
+}

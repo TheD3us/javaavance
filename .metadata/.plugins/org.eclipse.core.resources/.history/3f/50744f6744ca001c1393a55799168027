@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Les nombres en folie !!!</title>
+</head>
+<body>
+	<form method="GET" action="/CrazyNumber/Formulaire">
+	<h1>Devinez le nombre entre 1 et 10</h1>
+	<input name="num" type="number" >
+	<input type="submit" value="Tope là">
+	</form>
+	<form method="POST" action="/CrazyNumber/Formulaire">
+	<input type="submit" value="Nbr Essais">
+	</form>
+</body>
+</html>
