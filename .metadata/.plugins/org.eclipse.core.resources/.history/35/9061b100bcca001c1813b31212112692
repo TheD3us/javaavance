@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Yaaaay</h1>
+	<form action="/CrazyNumber/Formulaire" method="GET">
+		<label>Valeur Min</label>
+	<input type="number" name="min"> 
+	<label>Valeur Max</label>
+	<input type="number" name="max"> 
+	<input type="submit" value="Rejouer">
+	</form>
+</body>
+</html>

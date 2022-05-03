@@ -16,6 +16,7 @@ public class Formulaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int nombreMystere = 0;
 	int compteur = 0;
+	boolean gagne = false;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,30 +27,57 @@ public class Formulaire extends HttpServlet {
     
     @Override
     public void init(ServletConfig config) throws ServletException {
-    	nombreMystere = (int) (Math.random() * 10);
+    	genererNombre(10,0);
     	
     	super.init(config);
+    }
+    
+    public void genererNombre(int a, int b) {
+    	nombreMystere = (int) (Math.random() * (a-b) + b);
+    	System.out.println(nombreMystere);
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		compteur++;
-		System.out.println("Nombre essais : " + compteur);
-		String nombreDonne = request.getParameter("num");
-		int nombre = Integer.parseInt(nombreDonne);
-		System.out.println(nombre);
-		if(nombre == nombreMystere) {
-			System.out.println(nombre);
-			response.sendRedirect("/CrazyNumber/HTML/Reussite.html");
+		
+
+		
+
+		if(gagne == true) {
+			String nombreDonneMin = request.getParameter("min");
+			String nombreDonneMax = request.getParameter("max");
+			int nombreMin = Integer.parseInt(nombreDonneMin);
+			int nombreMax = Integer.parseInt(nombreDonneMax);
+			if(nombreMin != 0 && nombreMax != 10) {
+				
+				genererNombre(nombreMax, nombreMin);
+			}else {
+				genererNombre(10, 0);
+			}
+			
+			gagne = false;
+			compteur = 0;
+			response.sendRedirect("/CrazyNumber/HTML/Formulaire.html");
 		}else {
+			compteur++;
+			System.out.println("Nombre essais : " + compteur);
+			String nombreDonne = request.getParameter("num");
+			int nombre = Integer.parseInt(nombreDonne);
 			System.out.println(nombre);
-			response.sendRedirect("/CrazyNumber/HTML/Echec.html");
+			
+			if(nombre == nombreMystere) {
+				gagne = true;
+				System.out.println(nombre);
+				response.sendRedirect("/CrazyNumber/HTML/Reussite.html");
+			}else {
+				System.out.println(nombre);
+				response.sendRedirect("/CrazyNumber/HTML/Echec.html");
+			
 		}
-		
-		
-	}
+	}				
+}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

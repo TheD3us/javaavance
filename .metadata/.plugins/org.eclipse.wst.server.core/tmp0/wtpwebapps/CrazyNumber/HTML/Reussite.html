@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="CSS/marx.min.css"/>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 <h1>Yaaaay</h1>
-<a href="Formulaire.html">Rejouer</a><br>
-<label>Nombre d'essai</label><br>
-<input type="number" readonly="readonly" name="essai">
+	<form action="/CrazyNumber/Formulaire" method="GET">
+		<label>Valeur Min</label>
+	<input type="number" name="min" value="0"> 
+	<label>Valeur Max</label>
+	<input type="number" name="max" value="10"> 
+	<input type="submit" value="Rejouer">
+	</form>
 </body>
 </html>
