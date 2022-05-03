@@ -74,7 +74,6 @@ public class Formulaire extends HttpServlet {
 			}else {
 				System.out.println(nombre);
 				response.sendRedirect("/CrazyNumber/HTML/Echec.html");
-			
 		}
 	}				
 }
