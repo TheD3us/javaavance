@@ -179,3 +179,8 @@
 0:0:0:0:0:0:0:1 - - [03/May/2022:19:38:24 +0200] "GET /Annuaire/jsp/Annuaire.jsp HTTP/1.1" 200 371
 0:0:0:0:0:0:0:1 - - [03/May/2022:19:38:26 +0200] "GET /Annuaire/Annuaire?index=0 HTTP/1.1" 200 456
 0:0:0:0:0:0:0:1 - - [03/May/2022:19:38:29 +0200] "GET /Annuaire/Annuaire?index=1 HTTP/1.1" 500 1157
+127.0.0.1 - - [03/May/2022:19:39:01 +0200] "GET / HTTP/1.1" 404 681
+0:0:0:0:0:0:0:1 - - [03/May/2022:19:39:02 +0200] "GET /Annuaire/Annuaire HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/May/2022:19:39:02 +0200] "GET /Annuaire/jsp/Annuaire.jsp HTTP/1.1" 200 371
+0:0:0:0:0:0:0:1 - - [03/May/2022:19:39:04 +0200] "GET /Annuaire/Annuaire?index=0 HTTP/1.1" 200 451
+0:0:0:0:0:0:0:1 - - [03/May/2022:19:39:06 +0200] "GET /Annuaire/Annuaire?index=1 HTTP/1.1" 200 450
