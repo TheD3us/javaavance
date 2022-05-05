@@ -1,13 +1,15 @@
 package bo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Contact {
+	private int id;
 	private String nom;
 	private String prenom;
-	private LocalDateTime dateNaissance;
+	private LocalDate dateNaissance;
 	private String numeroTelephone;
 	private String urlReseauxSociaux;
 	private String poste;
@@ -15,7 +17,7 @@ public class Contact {
 	
 	
 	
-	public Contact(String nom, String prenom, LocalDateTime dateNaissance, String numeroTelephone,
+	public Contact(String nom, String prenom, LocalDate dateNaissance, String numeroTelephone,
 			String urlReseauxSociaux, String poste, List<String> specialite) {
 		this.nom = nom;
 		this.prenom = prenom;
@@ -27,6 +29,13 @@ public class Contact {
 	}
 	
 	
+	public Contact() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 	public String getNom() {
 		return nom;
 	}
@@ -39,10 +48,10 @@ public class Contact {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public LocalDateTime getDateNaissance() {
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(LocalDateTime dateNaissance) {
+	public void setDateNaissance(LocalDate dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 	public String getNumeroTelephone() {
@@ -79,6 +88,16 @@ public class Contact {
 		
 		return text;
 		
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
