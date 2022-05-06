@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Atelier" path="/Atelier" reloadable="true" source="org.eclipse.jst.jee.server:Atelier"/><Context docBase="CrazyNumber" path="/CrazyNumber" reloadable="true" source="org.eclipse.jst.jee.server:CrazyNumber"/><Context docBase="Annuaire" path="/Annuaire" reloadable="true" source="org.eclipse.jst.jee.server:Annuaire"/><Context docBase="DemoConnexionBDD" path="/DemoConnexionBDD" reloadable="true" source="org.eclipse.jst.jee.server:DemoConnexionBDD"/></Host>
+      <Context docBase="Atelier" path="/Atelier" reloadable="true" source="org.eclipse.jst.jee.server:Atelier"/><Context docBase="CrazyNumber" path="/CrazyNumber" reloadable="true" source="org.eclipse.jst.jee.server:CrazyNumber"/><Context docBase="Annuaire" path="/Annuaire" reloadable="true" source="org.eclipse.jst.jee.server:Annuaire"/><Context docBase="DemoConnexionBDD" path="/DemoConnexionBDD" reloadable="true" source="org.eclipse.jst.jee.server:DemoConnexionBDD"/><Context docBase="DemoContext" path="/DemoContext" reloadable="true" source="org.eclipse.jst.jee.server:DemoContext"/></Host>
     </Engine>
   </Service>
 </Server>

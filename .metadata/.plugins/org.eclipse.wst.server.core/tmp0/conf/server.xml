@@ -156,7 +156,7 @@
 	<Resource driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/annuaire" password="Lordkakash1" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/annuaire" username="root"/>
 </Context><Context docBase="C:\Users\ib\Documents\Java avancé\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\DemoConnexionBDD" path="/DemoConnexionBDD" reloadable="true" source="org.eclipse.jst.jee.server:DemoConnexionBDD">
 	<Resource driverClassName="com.mysql.cj.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/articles" password="Lordkakash1" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/bdd_demo" username="root"/>
-</Context></Host>
+</Context><Context docBase="C:\Users\ib\Documents\Java avancé\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\DemoContext" path="/DemoContext" reloadable="true" source="org.eclipse.jst.jee.server:DemoContext"/></Host>
     </Engine>
   </Service>
 </Server>
