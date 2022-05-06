@@ -55,4 +55,3 @@ INDEX VERSION 1.131+C:\Users\ib\Documents\Java avancé\.metadata\.plugins\org.ecl
 684807332.index
 1914892012.index
 2299224485.index
-2874195192.index

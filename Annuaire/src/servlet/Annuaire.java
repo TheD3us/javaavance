@@ -22,7 +22,7 @@ public class Annuaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
    
-    private int i = 0;
+
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

@@ -47,17 +47,18 @@ public class ModifierContact extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String idContact = request.getParameter("id");
-		System.out.println(idContact);
-		int id = Integer.parseInt(idContact);
-		System.out.println(id);
+		if(idContact != null)
+		{
+			int id = Integer.parseInt(idContact);
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/ModifierContact.jsp");
+			contact = contactBll.select(id);
+			request.setAttribute("contact", contact);
+			request.setAttribute("specialite", contact.speToString() );
+			
+			rd.forward(request, response);
+		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/ModifierContact.jsp");
-		System.out.println(id);
-		contact = contactBll.select(id);
-		request.setAttribute("contact", contact);
-		request.setAttribute("specialite", contact.speToString() );
-		
-		rd.forward(request, response);
+
 		
 		
 
