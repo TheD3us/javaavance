@@ -19,7 +19,7 @@ public class ContactBll {
 	}
 	
 	public Contact select(int id) {
-		if(id >= 0) {
+		if(id > -1) {
 			return dao.select(id);
 		}
 		return null;
@@ -39,6 +39,14 @@ public class ContactBll {
 			}
 		}
 		dao.insert(contact);
+	}
+	
+	public void update(Contact contact) {
+		if(contact.getNom().length() > 50 || contact.getPrenom().length() > 30 || contact.getDateNaissance().isAfter(LocalDate.now()) || contact.getNumeroTelephone().length() != 10 
+				|| contact.getUrlReseauxSociaux().length() > 30 || contact.getPoste().length() > 30) {
+			return;
+		}
+		dao.update(contact);
 	}
 	
 	public void delete(int id) {

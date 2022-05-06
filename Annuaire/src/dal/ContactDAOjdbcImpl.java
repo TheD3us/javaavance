@@ -20,7 +20,7 @@ public class ContactDAOjdbcImpl implements ContactDAO {
 		Contact contact = new Contact();
 		try {
 			Connection cnx = ConnectionProvider.getConnection();
-			PreparedStatement ps = cnx.prepareStatement("SELECT * FROM contact AS LEFT JOIN specialite AS s ON s.contact = c.id WHERE c.id = 1;");
+			PreparedStatement ps = cnx.prepareStatement("SELECT * FROM contact AS c LEFT JOIN specialite AS s ON s.contact = c.id WHERE c.id = ?;");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			

@@ -17,11 +17,17 @@
 		<input type="submit" value="Chercher">
 	</form>
 	
-	
+		<form method="GET" action="/Annuaire/AjouterContact">
+		<input type="submit" value="Ajouter"/>
+	</form>
 	
 	<form method="GET" action="/Annuaire/SupprimerContact">
 		<input type="hidden" value="${id}" name="id"/>
 		<input type="submit" value="Supprimer"/>
+	</form>
+	<form method="GET" action="/Annuaire/ModifierContact">
+		<input type="hidden" value="${id}" name="id"/>
+		<input type="submit" value="Modifier"/>
 	</form>
 	${nom}<br>
 	${prenom}<br>

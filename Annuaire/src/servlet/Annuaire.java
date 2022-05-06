@@ -45,14 +45,14 @@ public class Annuaire extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/jsp/Annuaire.jsp");
 			for(Contact current : contact.selectAll()) {
 				if(current.getNom().equalsIgnoreCase(nom) && current.getPrenom().equalsIgnoreCase(prenom) && current.getDateNaissance().isEqual(date)) {
-					request.setAttribute("id", contact.selectAll().get(i).getId());
-					request.setAttribute("nom", contact.selectAll().get(i).getNom() );
-					request.setAttribute("prenom", contact.selectAll().get(i).getPrenom() );
-					request.setAttribute("dateNaissance", contact.selectAll().get(i).getDateNaissance() );
-					request.setAttribute("numeroTelephone", contact.selectAll().get(i).getNumeroTelephone() );
-					request.setAttribute("reseauxSociaux", contact.selectAll().get(i).getUrlReseauxSociaux() );
-					request.setAttribute("poste", contact.selectAll().get(i).getPoste() );
-					request.setAttribute("specialite", contact.selectAll().get(i).speToString() );
+					request.setAttribute("id", current.getId());
+					request.setAttribute("nom", current.getNom() );
+					request.setAttribute("prenom", current.getPrenom() );
+					request.setAttribute("dateNaissance", current.getDateNaissance() );
+					request.setAttribute("numeroTelephone", current.getNumeroTelephone() );
+					request.setAttribute("reseauxSociaux", current.getUrlReseauxSociaux() );
+					request.setAttribute("poste", current.getPoste() );
+					request.setAttribute("specialite", current.speToString() );
 				}
 			}
 

@@ -18,19 +18,24 @@ import bll.ContactBll;
 import bo.Contact;
 
 /**
- * Servlet implementation class AjouterContact
+ * Servlet implementation class ModifierContact
  */
-@WebServlet("/AjouterContact")
-public class AjouterContact extends HttpServlet {
+@WebServlet("/ModifierContact")
+public class ModifierContact extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private ContactBll contactBll;
+    private ContactBll contactBll;
+    private Contact contact = new Contact();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjouterContact() {
+    public ModifierContact() {
         super();
         // TODO Auto-generated constructor stub
     }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
     
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -38,21 +43,33 @@ public class AjouterContact extends HttpServlet {
     	super.init(config);
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/AjouterContact.jsp");
+		
+		String idContact = request.getParameter("id");
+		System.out.println(idContact);
+		int id = Integer.parseInt(idContact);
+		System.out.println(id);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/ModifierContact.jsp");
+		System.out.println(id);
+		contact = contactBll.select(id);
+		request.setAttribute("contact", contact);
+		request.setAttribute("specialite", contact.speToString() );
+		
 		rd.forward(request, response);
+		
+		
+
+
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		Contact contact = new Contact();
-		
+
 		contact.setNom(request.getParameter("nom"));
 		contact.setPrenom(request.getParameter("prenom"));
 		String date = request.getParameter("dateNaissance");
@@ -66,10 +83,8 @@ public class AjouterContact extends HttpServlet {
 		listSpecialite.add(request.getParameter("spe1"));
 		contact.setSpecialite(listSpecialite);
 		
-		contactBll.insert(contact);
-		response.sendRedirect("/Annuaire/jsp/Annuaire.jsp");
-		
-		
+		contactBll.update(contact);
+		response.sendRedirect("/Annuaire/jsp/AjouterContact.jsp");
 	}
 
 }
