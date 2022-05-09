@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Modifier Contact</title>
 </head>
+<%@include file="/jsp/Header.jsp"%>
 <body>
 	<form action="/Annuaire/ModifierContact" method="POST">
 	<label>Nom</label>

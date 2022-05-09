@@ -10,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,14 @@ public class AjouterContact extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Cookie[] tabCookie = request.getCookies();
+		String posteDefaut;
+		for(Cookie current : tabCookie) {
+			if(current.getName().equals("posteDefaut")) {
+				posteDefaut = current.getValue();
+				request.setAttribute("posteDefaut", posteDefaut);
+			}
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("/jsp/AjouterContact.jsp");
 		rd.forward(request, response);
 	}
@@ -52,6 +61,8 @@ public class AjouterContact extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Contact contact = new Contact();
+		
+
 		
 		contact.setNom(request.getParameter("nom"));
 		contact.setPrenom(request.getParameter("prenom"));
